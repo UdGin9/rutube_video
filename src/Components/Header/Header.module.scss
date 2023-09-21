@@ -1,0 +1,32 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  height: 10vh;
+  background: #1C232B;
+  vertical-align: middle;
+  align-items: center;
+}
+.img{
+  height: 7vh;
+  width: auto;
+}
+.buttonBack{
+  min-width: 14vw;
+  height: 5vh;
+  background-color: #3a78ec; /* Green */
+  border: 3px solid #3a7999;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: Verdana, sans-serif;
+  opacity: 0.8;
+  user-select: none;
+  margin-left: 30rem;
+}
+
+
+.buttonBack:hover {
+  opacity: 1
+}

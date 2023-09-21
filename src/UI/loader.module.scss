@@ -1,0 +1,16 @@
+.loader-wrapper {
+  width: 100%;
+}
+
+.img {
+  display: flex;
+  width: 80px;
+  margin: 0 auto;
+  animation: spin .9s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
