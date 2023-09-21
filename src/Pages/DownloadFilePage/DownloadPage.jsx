@@ -18,6 +18,7 @@ const DownloadPage = ({video,isFetching}) => {
         return (
             <div className={s.container}>
                 <Header/>
+                <button className={s.buttonDownload}>Скачать видео</button> {/*привинтить скачку newVideo по onClick, скачка с помощью атрибута blob и поиграться со стилями кнопки*/}
             </div>
         );
     }
@@ -25,7 +26,7 @@ const DownloadPage = ({video,isFetching}) => {
 };
 
 const mapStateToProps = (state) => ({
-    character: state.video,
+    newVideo: state.newVideo,
     isFetching: state.isFetching,
 })
 

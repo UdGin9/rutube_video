@@ -1,8 +1,6 @@
-import {useMemo} from "react";
 
 export const DOWNLOAD_PAGE = "/download"
 export const FILE_LOAD_PAGE = "/"
-export const LOAD_VIDEO = "SET_VIDEO"
 export const DOWNLOAD_VIDEO = "DOWNLOAD_VIDEO"
 export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 

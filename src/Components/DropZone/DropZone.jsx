@@ -4,7 +4,13 @@ import s from "./DropZone.module.scss"
 import {useMemo} from "react";
 import {Link} from "react-router-dom";
 import {baseStyle} from "../../consts";
-export function DropZone() {
+import {connect, useDispatch} from "react-redux";
+import axios from "axios";
+import {downloadVideo, toggleIsFetching} from "../../redux/reducer";
+    function DropZone({toggleIsFetching,newVideo}) {
+
+    const dispatch = useDispatch();
+
 
     const style = useMemo(() => ({
         ...baseStyle,
@@ -24,6 +30,17 @@ export function DropZone() {
         </li>
     ));
 
+    const dispatchVideo = ( ) =>  {
+        dispatch(toggleIsFetching(true))
+        axios.post("", acceptedFileItems )
+            .then(function (response) {
+                dispatch(downloadVideo(newVideo.response)) /*????? мб и так, надо проверять с API*/
+                dispatch(toggleIsFetching(false))
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
 
     return (
         <section className={s.container}>
@@ -37,9 +54,18 @@ export function DropZone() {
                 <ul className={s.text}>{acceptedFileItems}</ul>
             </aside>
             <Link to="download">
-                <button className={s.LoadButton}>Отправить видео на обработку
+                <button onClick={dispatchVideo} className={s.LoadButton}>Отправить видео на обработку
                 </button>
             </Link>
         </section>
     );
 }
+
+
+const mapStateToProps = (state) => ({
+    newVideo: state.newVideo,
+    isFetching: state.isFetching,
+})
+
+
+export const DropZoneContainer = connect(mapStateToProps,{toggleIsFetching})(DropZone)
